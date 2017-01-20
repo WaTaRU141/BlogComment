@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @blog.body %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @blog.author %>
+</p>
+
+<hr>
+<h3>コメント一覧</h3>
+
+<% if @blog.comments.blank? %>
+まだコメントはありません
+<% else %>
+
+
+<% @blog.comments.each do |comment| %>
+<%= comment.content %><br>
+<% end %>
+<% end %>
+
+<hr>
+
+<h3>コメント</h3>
+<%= form_for(@comment, url: blog_comments_path(@blog)) do |f| %>
+  コメント欄：<%= f.text_area :content %>
+  <%= f.submit "コメント送信" %>
+<% end %>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
