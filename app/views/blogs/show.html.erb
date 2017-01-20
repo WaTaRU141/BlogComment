@@ -30,7 +30,7 @@
 
 <hr>
 
-<h3>コメント</h3>
+<h3>comment</h3>
 <%= form_for(@comment, url: blog_comments_path(@blog)) do |f| %>
   コメント欄：<%= f.text_area :content %>
   <%= f.submit "コメント送信" %>
